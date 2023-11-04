@@ -1,0 +1,7 @@
+npm init -y
+npm install -D nodemon
+npm install express
+inside package.json:
+we add app.js instead of index.js
+change start and dev
+run with npm start or npm run dev
