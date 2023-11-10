@@ -11,9 +11,9 @@ app.listen(3000);
 app.get('/', (req, res) => {
     // res.send('<p>Home page</p>');
     const blogs = [
-        {title: 'Yoshi finds eggs', snippet: 'Lorem ipsum delor sit amet consectetur'},
-        {title: 'Mario finds stars', snippet: 'Lorem ipsum delor sit amet consectetur'},
-        {title: 'How to defeat bowser', snippet: 'Lorem ipsum delor sit amet consectetur'},
+        // {title: 'Yoshi finds eggs', snippet: 'Lorem ipsum delor sit amet consectetur'},
+        // {title: 'Mario finds stars', snippet: 'Lorem ipsum delor sit amet consectetur'},
+        // {title: 'How to defeat bowser', snippet: 'Lorem ipsum delor sit amet consectetur'},
     ];
     res.render('index', {title: 'Home'}, blogs);
 })
