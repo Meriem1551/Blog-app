@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
         // {title: 'Mario finds stars', snippet: 'Lorem ipsum delor sit amet consectetur'},
         // {title: 'How to defeat bowser', snippet: 'Lorem ipsum delor sit amet consectetur'},
     ];
-    res.render('index', {title: 'Home'}, blogs);
+    res.render('index', {title: 'Home', blogs});
 })
 
 app.get('/about', (req, res) => {
