@@ -2,7 +2,7 @@
 <%- include("./partials/head.ejs") %>
 
 <body>
-  <%- include("./partials/nav.ejs") %>
+  <%- include("./partials/nav.ejs") %> <!--passing data or logic-->
 
   <div class="blogs content">
     <h2>All Blogs</h2>
@@ -10,7 +10,7 @@
     <% if (blogs.length > 0) { %>
       <% blogs.forEach(blog => { %>
 
-        <h3 class="title"><%= blog.title %></h3>
+        <h3 class="title"><%= blog.title %></h3><!--we add = to passing vars-->
         <p class="snippet"><%= blog.snippet %></p>
 
       <% }) %>
