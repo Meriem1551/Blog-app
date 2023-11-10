@@ -3,7 +3,15 @@ const express = require('express');
 const app = express();
 
 app.set('view engine', 'ejs');
-
+app.set('views','./views');
+app.use(express.static('public'));
+app.use((req, res, next) => {
+    console.log('new request made:');
+    console.log('host: ', req.hostname);
+    console.log('path: ', req.path);
+    console.log('method: ', req.method);
+    next();
+  });
 //listen for requests
 
 app.listen(3000);
@@ -11,9 +19,9 @@ app.listen(3000);
 app.get('/', (req, res) => {
     // res.send('<p>Home page</p>');
     const blogs = [
-        // {title: 'Yoshi finds eggs', snippet: 'Lorem ipsum delor sit amet consectetur'},
-        // {title: 'Mario finds stars', snippet: 'Lorem ipsum delor sit amet consectetur'},
-        // {title: 'How to defeat bowser', snippet: 'Lorem ipsum delor sit amet consectetur'},
+        {title: 'Yoshi finds eggs', snippet: 'Lorem ipsum delor sit amet consectetur'},
+        {title: 'Mario finds stars', snippet: 'Lorem ipsum delor sit amet consectetur'},
+        {title: 'How to defeat bowser', snippet: 'Lorem ipsum delor sit amet consectetur'},
     ];
     res.render('index', {title: 'Home', blogs});
 })
