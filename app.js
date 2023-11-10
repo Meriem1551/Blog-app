@@ -1,20 +1,17 @@
 const express = require('express');
+const morgan = require('morgan');
 //express app
 const app = express();
 
 app.set('view engine', 'ejs');
 app.set('views','./views');
 app.use(express.static('public'));
-app.use((req, res, next) => {
-    console.log('new request made:');
-    console.log('host: ', req.hostname);
-    console.log('path: ', req.path);
-    console.log('method: ', req.method);
-    next();
-  });
+
 //listen for requests
 
 app.listen(3000);
+
+app.use(morgan('dev'));
 
 app.get('/', (req, res) => {
     // res.send('<p>Home page</p>');
@@ -35,7 +32,7 @@ app.get('/about', (req, res) => {
 
 //redirect
 
-app.get('./blogs/create', (req, res) =>{
+app.get('/create', (req, res) =>{
     res.render('create', {title: 'Create'});
 })
 

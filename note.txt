@@ -5,3 +5,6 @@ inside package.json:
 we add app.js instead of index.js
 change start and dev
 run with npm start or npm run dev
+
+installing morgan:
+npm install morgan
