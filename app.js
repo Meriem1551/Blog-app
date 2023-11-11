@@ -68,7 +68,7 @@ app.get('/single-blog', (req, res) => {
     })
     .catch((err) => {
         console.log(err);
-    })
+    });
 })
 
 app.get('/', (req, res) => {
