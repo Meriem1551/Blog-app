@@ -8,3 +8,7 @@ run with npm start or npm run dev
 
 installing morgan:
 npm install morgan
+
+MONGO DB:
+after connecting the data base 
+npm install mongoose
