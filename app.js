@@ -9,6 +9,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views','./views');
 app.use(express.static('public'));
+app.use(express.urlencoded({extended: true}))
 app.use(morgan('dev'));
 
 
@@ -84,6 +85,10 @@ app.get('/about', (req, res) => {
 
 })
 
+app.get('/blogs/create', (req, res) =>{
+    res.render('create', {title: 'Create'});
+})
+
 app.get('/blogs', (req, res) => {
     Blog.find().sort({ createdAt: -1})
     .then((result) => {
@@ -94,10 +99,17 @@ app.get('/blogs', (req, res) => {
     })
 })
 
-app.get('/blogs/create', (req, res) =>{
-    res.render('create', {title: 'Create'});
-})
+app.post('/blogs', (req, res) => {
+    const blog = new Blog(req.body);
 
+    blog.save()
+    .then((result) => {
+        res.redirect('/blogs')
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+})
 //404 page
 app.use((req, res) =>{
     res.status(404).render('404page', {title: '404'});
